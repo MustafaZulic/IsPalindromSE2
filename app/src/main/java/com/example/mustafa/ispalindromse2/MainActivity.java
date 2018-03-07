@@ -22,23 +22,22 @@ public class MainActivity extends AppCompatActivity {
         Ausgabe = (TextView)findViewById(R.id.PalindromAusgabe);
         button = (Button)findViewById(R.id.PruefePalindrom);
 
+
         button.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View v) {
-                if (Eingabe.getText().toString().isEmpty() || Eingabe.getText().toString().equals(" ") || Eingabe.getText().toString().length()<=5 ){
+                if (Eingabe.getText().toString().isEmpty() || Eingabe.getText().toString().equals(" ") || Eingabe.getText().toString().length()<5 ){
                     Eingabe.setError("Bitte beachten Sie das die Eingabe nicht kleiner wie 5 Zeichen haben darf, keine Leerzeichen oder Leer ist");
                 }else{
                     Ausgabe.setText(Boolean.toString(isPalindrome(Eingabe.getText().toString())));
                 }
-
-
             }
         });
     }
 
-    public boolean isPalindrome(String str)	{
+    public static boolean isPalindrome(String str)	{
         return str.equalsIgnoreCase(new StringBuilder(str).reverse().toString());
     }
 
